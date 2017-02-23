@@ -21,6 +21,8 @@
             android:label="Drawing Application"></activity>
         <activity android:name=".gallery.GalleryActivity"
             android:label="Drawing Gallery"></activity>
+        <activity android:name=".todo.list.ToDoListActivity"
+            android:label="ToDo List"></activity>
 
     </application>
 

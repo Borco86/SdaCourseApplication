@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rent.sdacourseapplication.drawing.app.DrawingActivity;
+import com.example.rent.sdacourseapplication.todo.list.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +41,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DrawingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView toDoList = (TextView) findViewById(R.id.to_do_text_view);
+        toDoList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ToDoListActivity.class);
                 startActivity(intent);
             }
         });
