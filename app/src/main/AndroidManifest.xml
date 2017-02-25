@@ -17,13 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".drawing.app.DrawingActivity"
-            android:label="Drawing Application"></activity>
-        <activity android:name=".gallery.GalleryActivity"
-            android:label="Drawing Gallery"></activity>
-        <activity android:name=".todo.list.ToDoListActivity"
-            android:label="ToDo List"></activity>
-
+        <activity
+            android:name=".drawing.app.DrawingActivity"
+            android:label="Drawing Application" />
+        <activity
+            android:name=".gallery.GalleryActivity"
+            android:label="Drawing Gallery" />
+        <activity
+            android:name=".todo.list.ToDoListActivity"
+            android:label="ToDo List" />
+        <activity
+            android:name=".milionaires.quiz.MilionairesActivity"
+            android:label="Milionaires" />
     </application>
 
 </manifest>

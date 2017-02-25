@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+
 import com.example.rent.sdacourseapplication.R;
 
 import java.util.ArrayList;
@@ -19,9 +20,12 @@ import java.util.List;
 
 public class ToDOListAdapter extends RecyclerView.Adapter<ToDOListAdapter.MyViewHolder> {
 
-
     private List<ToDoListItem> items = new ArrayList<>();
     private OnItemCheckStateChanged checkListener;
+
+//    public ToDOListAdapter(List<ToDoListItem> items) {
+//        this.items = items;
+//    }
 
     public void setCheckListener(OnItemCheckStateChanged checkListener) {
         this.checkListener = checkListener;
@@ -51,6 +55,7 @@ public class ToDOListAdapter extends RecyclerView.Adapter<ToDOListAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final ToDoListItem listItem = items.get(position);
         holder.textView.setText(listItem.getText());
+        holder.checkBox.setOnCheckedChangeListener(null);
         holder.checkBox.setChecked(listItem.isChecked());
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -85,6 +90,13 @@ public class ToDOListAdapter extends RecyclerView.Adapter<ToDOListAdapter.MyView
         //notifyItemInserted();
     }
 
+    public void deselectAllItems(){
+        for(ToDoListItem item: items){
+            item.setChecked(false);
+        }
+        notifyDataSetChanged();
+    }
+
     public void deleteAllCheckedItems() {
         List<ToDoListItem> newItems = new ArrayList<>();
         for (int i = 0; i < items.size(); i++) {
@@ -99,5 +111,12 @@ public class ToDOListAdapter extends RecyclerView.Adapter<ToDOListAdapter.MyView
         }
     }
 
+    public List<ToDoListItem> getItems() {
+        return items;
+    }
 
+    public void setItems(List<ToDoListItem> items) {
+        this.items = items;
+        notifyDataSetChanged();
+    }
 }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rent.sdacourseapplication.drawing.app.DrawingActivity;
+import com.example.rent.sdacourseapplication.milionaires.quiz.MilionairesActivity;
 import com.example.rent.sdacourseapplication.todo.list.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ToDoListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView milionaires = (TextView) findViewById(R.id.milionaires_view);
+        milionaires.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MilionairesActivity.class);
                 startActivity(intent);
             }
         });

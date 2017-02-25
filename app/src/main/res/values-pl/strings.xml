@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SdaCourseApplication</string>
+    <string name="open">Otwórz</string>
+    <string name="close">Zamknij</string>
+    <string name="clear">Usuń</string>
+    <string name="chcecked_items">Zaznaczono %d elementów</string>
+    <plurals name="chcecked_items_plural">
+        <item quantity="one">%d element</item>
+        <item quantity="few">%d elementy</item>
+        <item quantity="many">%d elementów</item>
+    </plurals>
+
+</resources>
