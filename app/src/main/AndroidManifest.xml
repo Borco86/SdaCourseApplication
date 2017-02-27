@@ -27,7 +27,7 @@
             android:name=".todo.list.ToDoListActivity"
             android:label="ToDo List" />
         <activity
-            android:name=".milionaires.quiz.MilionairesActivity"
+            android:name=".milionaires.quiz.MillionairesActivity"
             android:label="Milionaires" />
     </application>
 

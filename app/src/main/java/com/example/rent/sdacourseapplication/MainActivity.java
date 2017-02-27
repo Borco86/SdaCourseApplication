@@ -3,7 +3,6 @@ package com.example.rent.sdacourseapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,10 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.rent.sdacourseapplication.drawing.app.DrawingActivity;
-import com.example.rent.sdacourseapplication.milionaires.quiz.MilionairesActivity;
+import com.example.rent.sdacourseapplication.milionaires.quiz.MillionairesActivity;
 import com.example.rent.sdacourseapplication.todo.list.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         milionaires.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MilionairesActivity.class);
+                Intent intent = new Intent(MainActivity.this, MillionairesActivity.class);
                 startActivity(intent);
             }
         });

@@ -8,60 +8,78 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.rent.sdacourseapplication.milionaires.quiz.MilionairesActivity">
+    tools:context="com.example.rent.sdacourseapplication.milionaires.quiz.MillionairesActivity">
 
 
     <android.support.v4.widget.ContentLoadingProgressBar
-        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
         android:id="@+id/progress_bar"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
-        android:indeterminate="false"
         android:layout_height="20dp"
+        android:indeterminate="false"
         android:max="100"
-        tools:progress="50"/>
+        tools:progress="50" />
 
     <TextView
         android:id="@+id/question"
-        android:layout_above="@+id/answer_one"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_above="@+id/answer_one"
         android:layout_margin="5dp"
         android:background="@android:color/holo_blue_light"
-        android:textColor="@android:color/white"/>
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/answer_one"
-        android:layout_above="@+id/answer_three"
         android:layout_width="170dp"
         android:layout_height="100dp"
+        android:layout_above="@+id/answer_three"
         android:layout_margin="5dp"
         android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/answer_two"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/answer_four"
         android:layout_alignParentRight="true"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
         android:layout_margin="5dp"
         android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/answer_three"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_width="170dp"
-        android:layout_height="100dp"
         android:layout_margin="5dp"
         android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
+
     <TextView
         android:id="@+id/answer_four"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_width="170dp"
         android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_margin="5dp"
         android:background="@android:color/holo_blue_dark"
-        android:textColor="@android:color/white"/>
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20dp" />
 
 </RelativeLayout>
