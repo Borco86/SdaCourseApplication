@@ -98,5 +98,14 @@
             android:gravity="center"
             android:text="Milionaires"
             android:textSize="20dp" />
+        <TextView
+            android:id="@+id/books_view"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Books"
+            android:textSize="20dp" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -29,6 +29,7 @@
         <activity
             android:name=".milionaires.quiz.MillionairesActivity"
             android:label="Milionaires" />
+        <activity android:name=".books.BooksActivity"></activity>
     </application>
 
 </manifest>
