@@ -33,6 +33,7 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
     private int currentQuestionIndex = 0;
     private QuizQuestion quizQuestion;
     private boolean wasClicked;
+    private ValueAnimator objectAnimator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
         //}
 
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        ValueAnimator objectAnimator = ObjectAnimator.ofInt(0, 100);
+        objectAnimator = ObjectAnimator.ofInt(0, 100);
         objectAnimator.setDuration(10000);
         objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -111,9 +112,14 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
             v.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(MillionairesActivity.this, MillionairesActivity.class);
-                    intent.putExtra(INDEX_KEY, ++currentQuestionIndex);
-                    startActivity(intent);
+                    if(currentQuestionIndex<quizContainer.getQuestionsCount()-1) {
+                        Intent intent = new Intent(MillionairesActivity.this, MillionairesActivity.class);
+                        intent.putExtra(INDEX_KEY, ++currentQuestionIndex);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(MillionairesActivity.this, "Quiz ends!", Toast.LENGTH_SHORT).show();
+                    }
+                    objectAnimator.cancel();
                 }
             }, 3000);
             wasClicked = true;

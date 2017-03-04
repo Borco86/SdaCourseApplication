@@ -37,6 +37,7 @@
             android:text="Save note"/>
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="200dp"
         android:layout_height="match_parent"
@@ -54,23 +55,7 @@
             android:text="Rysowanie"
             android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@android:color/holo_blue_dark"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="Game of Reflex"
-            android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="@android:color/white"
-            android:clickable="true"
-            android:gravity="center"
-            android:text="Flaga"
-            android:textSize="20dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -106,6 +91,41 @@
             android:clickable="true"
             android:gravity="center"
             android:text="Books"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/prophecy_view"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/holo_blue_dark"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Prophecy"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/mvp_view"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="MVP"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/holo_blue_dark"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Game of Reflex"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Flaga"
             android:textSize="20dp" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

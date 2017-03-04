@@ -14,9 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.rent.sdacourseapplication.MVP.MvpActivity;
 import com.example.rent.sdacourseapplication.books.BooksActivity;
 import com.example.rent.sdacourseapplication.drawing.app.DrawingActivity;
 import com.example.rent.sdacourseapplication.milionaires.quiz.MillionairesActivity;
+import com.example.rent.sdacourseapplication.prophecy.ProphecyActivity;
 import com.example.rent.sdacourseapplication.todo.list.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +70,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView prophecy = (TextView) findViewById(R.id.prophecy_view);
+        prophecy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProphecyActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView mvp = (TextView) findViewById(R.id.mvp_view);
+        mvp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MvpActivity.class);
                 startActivity(intent);
             }
         });

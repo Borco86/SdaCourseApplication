@@ -2,7 +2,6 @@ package com.example.rent.sdacourseapplication.books;
 
 import android.content.SharedPreferences;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
