@@ -4,6 +4,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import com.example.rent.sdacourseapplication.R;
 import com.google.gson.Gson;
@@ -19,6 +21,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class MillionairesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -40,6 +44,8 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_milionaires);
 
+        ViewSwitcher viewSwitcher = (ViewSwitcher) findViewById(R.id.view_switcher);
+
         //if(currentQuestionIndex<=quizContainer.getQuestionsCount()) {
             currentQuestionIndex = getIntent().getIntExtra(INDEX_KEY, 0);
         //}else{
@@ -55,16 +61,40 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
                 progressBar.setProgress((Integer) animation.getAnimatedValue());
             }
         });
-        objectAnimator.start();
-        //ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
-        String json = null;
 
-        try {
-            json = loadQuizJson();
-            quizContainer = new Gson().fromJson(json, QuizContainer.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
+
+
+        new AsyncTask<String, Void, QuizContainer>(){
+            String json = null;
+
+            @Override
+            protected QuizContainer doInBackground(String... params) {
+                try {
+                    json = loadQuizJsonFromUrl(params[0]);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return new Gson().fromJson(json, QuizContainer.class);
+
+
+            }
+
+            @Override
+            protected void onPostExecute(QuizContainer quizContainer) {
+                displayResultOnScreen(quizContainer);
+                viewSwitcher.setDisplayedChild(1);
+                objectAnimator.start();
+            }
+        }.execute("https://sdacourse-f181a.firebaseio.com/quiz.json");
+
+
+
+
+
+    }
+
+    private void displayResultOnScreen(QuizContainer quizContainer) {
         TextView question = (TextView) findViewById(R.id.question);
         TextView answer1 = (TextView) findViewById(R.id.answer_one);
         TextView answer2 = (TextView) findViewById(R.id.answer_two);
@@ -94,8 +124,6 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
         answer2.setOnClickListener(this);
         answer3.setOnClickListener(this);
         answer4.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -126,9 +154,12 @@ public class MillionairesActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    public String loadQuizJson() throws IOException {
+    public String loadQuizJsonFromUrl(String stringUrl) throws IOException {
+        URL url = new URL(stringUrl);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
         StringBuffer sb = new StringBuffer();
-        InputStream json = getAssets().open("quiz_data.json");
+        InputStream json = httpURLConnection.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(json, "UTF-8"));
         String str;
         while ((str = br.readLine()) != null) {
