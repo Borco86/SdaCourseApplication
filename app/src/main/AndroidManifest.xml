@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rent.sdacourseapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -17,11 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".drawing.app.DrawingActivity"
-            android:label="Drawing Application"></activity>
-        <activity android:name=".gallery.GalleryActivity"
-            android:label="Drawing Gallery"></activity>
+        <activity
+            android:name=".drawing.app.DrawingActivity"
+            android:label="Drawing Application" />
+        <activity
+            android:name=".gallery.GalleryActivity"
+            android:label="Drawing Gallery" />
+        <activity
+            android:name=".todo.list.ToDoListActivity"
+            android:label="ToDo List" />
+        <activity
+            android:name=".milionaires.quiz.MillionairesActivity"
+            android:label="Milionaires" />
+        <activity android:name=".books.BooksActivity" />
+        <activity android:name=".prophecy.ProphecyActivity" />
+        <activity android:name=".MVP.MvpActivity"
+            android:exported="true">
 
+        </activity>
     </application>
 
 </manifest>

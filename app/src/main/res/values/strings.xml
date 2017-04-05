@@ -3,4 +3,9 @@
     <string name="open">OPEN</string>
     <string name="close">CLOSE</string>
     <string name="clear">Clear</string>
+    <string name="chcecked_items">Checked %d items: </string>
+    <plurals name="chcecked_items_plural">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
 </resources>

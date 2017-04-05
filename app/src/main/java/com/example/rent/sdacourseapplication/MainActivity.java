@@ -3,7 +3,6 @@ package com.example.rent.sdacourseapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,9 +13,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.rent.sdacourseapplication.MVP.MvpActivity;
+import com.example.rent.sdacourseapplication.books.BooksActivity;
 import com.example.rent.sdacourseapplication.drawing.app.DrawingActivity;
+import com.example.rent.sdacourseapplication.milionaires.quiz.MillionairesActivity;
+import com.example.rent.sdacourseapplication.prophecy.ProphecyActivity;
+import com.example.rent.sdacourseapplication.todo.list.ToDoListActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +43,50 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DrawingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView toDoList = (TextView) findViewById(R.id.to_do_text_view);
+        toDoList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ToDoListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView milionaires = (TextView) findViewById(R.id.milionaires_view);
+        milionaires.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MillionairesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView booksList = (TextView) findViewById(R.id.books_view);
+        booksList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView prophecy = (TextView) findViewById(R.id.prophecy_view);
+        prophecy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProphecyActivity.class);
+                startActivity(intent);
+            }
+        });
+        TextView mvp = (TextView) findViewById(R.id.mvp_view);
+        mvp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MvpActivity.class);
                 startActivity(intent);
             }
         });
